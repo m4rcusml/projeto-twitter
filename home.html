@@ -84,23 +84,47 @@
                     <div class="area-img">
                         <img src="imagens/profile.jpg" alt="" class="img">
                     </div>
-                    <input type="text" name="post-text" id="post-text" placeholder="O que está acontecendo?">
+                    <textarea name="post-text" id="post-text" cols="30" rows="1" placeholder="O que está acontecendo?" oninput="autoGrow(this)"></textarea>
                 </div>
                 <div class="postar-area">
                     <div class="posting-tools">
                         
                     </div>
-                    <button type="button" class="postar-button">
+                    <button type="button" class="postar-button" onclick="postar()">
                         Publicar
                     </button>
                 </div>
             </div>
             <section class="posts">
-                <article class="post-exemplo">
-        
-                </article>
                 <article class="post">
-                    
+                    <div class="area-img">
+                        <img src="imagens/profile.jpg" alt="" class="img">
+                    </div>
+                    <div class="post-content-container">
+                        <div class="post-top">
+                            <div class="owner-post">
+                                <span class="perfil-nickname">Testador Beta haha</span>
+                                <span class="perfil-username">@testadorbeta123</span>
+                            </div>
+                            <button type="button" id="btn3pontinhos">
+                                ...
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="post-content">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore alias porro quis recusandae delectus similique enim, veniam, repellendus aut eveniet unde rerum accusamus iste, error tempore saepe accusantium harum. Animi?
+                        </div>
+                        <div class="post-interacoes">
+                            <button type="button" class="btn-interacao">
+                                <span></span>
+                                <img src="imagens/comment-icon-32.png" alt="">
+                            </button>
+                            <button type="button" class="btn-interacao">
+                                <span></span>
+                                <img src="imagens/heart-icon-32.png" alt="">
+                            </button>
+                        </div>
+                    </div>
                 </article>
             </section>
         </main>
@@ -118,5 +142,6 @@
             </p>
         </section>
     </div>
+    <script src="scripts/index.js"></script>
 </body>
 </html>

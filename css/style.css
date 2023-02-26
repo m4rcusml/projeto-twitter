@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+:root {
+    --branco: #d6d6d6;
+}
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +10,7 @@
 }
 body {
     background-color: black;
-    color: white;
+    color: var(--branco);
     font-family: Arial, Helvetica, sans-serif;
 }
 .max-container {
@@ -46,13 +49,13 @@ body {
 }
 .menu-item-content {
     width: fit-content;
-    color: white;
+    color: var(--branco);
     display: flex;
     align-items: center;
     gap: 1em;
     padding: .5em 1em;
     border-radius: 2em;
-    transition: all .3s;
+    transition: all .2s;
 }
 .menu-item-content-text {
     font-size: 1.2em;
@@ -65,9 +68,9 @@ body {
     align-items: center;
     padding: 1em;
     border-radius: 3em;
-    transition: all .3s;
+    transition: all .2s;
     background-color: transparent;
-    color: white;
+    color: var(--branco);
 }
 .perfil-button:hover {
     background-color: #ffffff1d;
@@ -119,9 +122,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--branco);
     text-decoration: none;
-    transition: all .3s;
+    transition: all .2s;
 }
 .opcao-abas:hover {
     background-color: #ffffff1d;
@@ -134,12 +137,13 @@ body {
     /*font-weight: bold;*/
 }
 .criar-post {
-    height: 120px;
-    padding: .5em 1em;
+    min-height: 120px;
+    padding: .6em 1em;
     border-bottom: 1px solid #ffffff2d;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 1em;
 }
 .post-text-area, .postar-area {
     flex-grow: 1;
@@ -159,7 +163,7 @@ body {
 }
 .post-text-area {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1em;
 }
 #post-text {
@@ -167,8 +171,16 @@ body {
     outline: none;
     width: 100%;
     background-color: transparent;
-    color: white;
+    color: var(--branco);
     font-size: 1.3em;
+    font-family: sans-serif;
+    resize: none;
+    overflow: hidden;
+    min-height: 30px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
 }
 .postar-area {
     display: flex;
@@ -178,12 +190,12 @@ body {
 .postar-button {
     cursor: pointer;
     background-color: #22a6ff;
-    color: white;
+    color: var(--branco);
     font-size: 1em;
     font-weight: bold;
     border: none;
     outline: none;
-    padding: .7em 1em;
+    padding: .5em 1em;
     border-radius: 4em;
     transition: all .2s;
 }
@@ -194,11 +206,91 @@ body {
     margin-top: .8em;
     padding: 1.1em;
 }
-
 .right-container {
     width: 410px;
     padding: 1em;
 }
 .right-container * {
     margin: 1em 0;
+}
+.post {
+    border-bottom: 1px solid #ffffff2d;
+    padding: 1em;
+    display: flex;
+    gap: .7em;
+}
+.post-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: .5em;
+}
+.post-top {
+    display: flex;
+    justify-content: space-between;
+}
+#btn3pontinhos {
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    width: 24px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: .1em .3em;
+    background-color: transparent;
+    color: #858585;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 8px;
+    transition: all .1s;
+}
+#btn3pontinhos:hover, .btn-interacao:hover {
+    color: #22a6ff;
+}
+#btn3pontinhos span, .btn-interacao span {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #1474b444;
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+    transition: all ease-in .1s;
+}
+#btn3pontinhos span {
+    top: -6px;
+    left: -5px;
+}
+#btn3pontinhos:hover span, .btn-interacao:hover span {
+    opacity: 1;
+}
+.owner-post {
+    display: flex;
+    align-items: center;
+    gap: .4em;
+}
+.owner-post * {
+    font-size: 1em;
+}
+.post-interacoes {
+    display: flex;
+    flex-shrink: 1;
+    gap: 4em;
+}
+.btn-interacao {
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    color: #858585;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-interacao img {
+    width: 20px;
 }
