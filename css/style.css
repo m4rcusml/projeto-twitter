@@ -20,26 +20,27 @@ body {
     min-height: 100vh;
 }
 .lateral-container {
+    position: relative;
     width: 275px;
+    height: 100vh;
     padding: 1em 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 2em;
 }
+.lateral-container > * {
+    position: absolute;
+    width: 275px;
+    right: 0;
+}
 .logo {
     padding: .5em 1em;
 }
-.menu-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+
 .menu {
     display: flex;
     flex-direction: column;
-    padding: 0 1em;
 }
 .menu-item {
     text-decoration: none;
@@ -59,9 +60,13 @@ body {
 }
 .menu-item-content-text {
     font-size: 1.2em;
-    /*font-weight: bold;*/
 }
 .perfil-button {
+    right: 1em;
+    width: 250px;
+    bottom: 1em;
+    border: none;
+    outline: none;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -74,6 +79,9 @@ body {
 }
 .perfil-button:hover {
     background-color: #ffffff1d;
+}
+.perfil-button:active {
+    background-color: rgb(153, 153, 153, 0.5);
 }
 .perfil-user {
     display: flex;
@@ -204,6 +212,7 @@ body {
 }
 .menu .postar-button {
     margin-top: .8em;
+    margin-right: 1em;
     padding: 1.1em;
 }
 .right-container {
@@ -220,6 +229,7 @@ body {
     gap: .7em;
 }
 .post-content-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -229,7 +239,7 @@ body {
     display: flex;
     justify-content: space-between;
 }
-#btn3pontinhos {
+.btn3pontinhos {
     border: none;
     outline: none;
     position: relative;
@@ -248,10 +258,10 @@ body {
     line-height: 8px;
     transition: all .1s;
 }
-#btn3pontinhos:hover, .btn-interacao:hover {
+.btn3pontinhos:hover, .btn-interacao:hover {
     color: #22a6ff;
 }
-#btn3pontinhos span, .btn-interacao span {
+.btn3pontinhos span, .btn-interacao span {
     position: absolute;
     border-radius: 50%;
     background-color: #1474b444;
@@ -260,11 +270,11 @@ body {
     opacity: 0;
     transition: all ease-in .1s;
 }
-#btn3pontinhos span {
+.btn3pontinhos span {
     top: -6px;
     left: -5px;
 }
-#btn3pontinhos:hover span, .btn-interacao:hover span {
+.btn3pontinhos:hover span, .btn-interacao:hover span {
     opacity: 1;
 }
 .owner-post {
@@ -293,4 +303,7 @@ body {
 }
 .btn-interacao img {
     width: 20px;
+}
+#posts {
+    overflow-y: auto;
 }
