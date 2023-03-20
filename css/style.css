@@ -101,6 +101,7 @@ body {
     color: #858585;
 }
 .principal-container {
+    flex-shrink: 0;
     width: 600px;
     border-right: 1px solid #ffffff2d;
     border-left: 1px solid #ffffff2d;
@@ -306,4 +307,41 @@ body {
 }
 #posts {
     overflow-y: auto;
+}
+
+@media screen and (max-width: 1310px) {
+    .lateral-container {
+        width: 144px;
+    }
+    .menu-item-content-text {
+        display: none;
+    }
+    .menu {
+        display: flex;
+        align-items: flex-end;
+    }
+    .menu .postar-button {
+        display: none;
+    }
+    .perfil-area {
+        display: none;
+    }
+    .perfil-button {
+        width: 60px;
+        height: 52px;
+    }
+    .perfil-button > div:last-child {
+        display: none;
+    }
+}
+@media screen and (max-width: 1005px) {
+    .principal-container {
+        flex-shrink: 1;
+    }
+    .lateral-container {
+        width: 64px;
+    }
+    .right-container {
+        display: none;
+    }
 }
