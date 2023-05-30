@@ -1,118 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UFT-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>Twitter 2</title>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    <div class="max-container">
-        <header class="lateral-container">
-            <nav class="menu">
-                <div class="logo">
-                    <a href="home.html" class="logo-button">
-                        <img src="imagens/twitter-logo-32.svg" alt="Logo">
-                    </a>
-                </div>
-                <a href="home.html" class="menu-item">
-                    <div class="menu-item-content">
-                        <div class="menu-item-content-img">
-                            <img src="imagens/home-logo-32.png" alt="">
-                        </div>
-                        <div class="menu-item-content-text">
-                            Página inicial
-                        </div>
+    <header>
+        <nav class="menu-box">
+            <div class="menu-lista">
+                <a href="home.html" class="menu-button">
+                    <div class="menu-button-content">
+                        <span class="menu-button-content-icon material-symbols-outlined">
+                            home
+                        </span>
+                        <span class="menu-button-content-text">
+                            Início
+                        </span>
                     </div>
                 </a>
-                <a href="#" class="menu-item">
-                    <div class="menu-item-content">
-                        <div class="menu-item-content-img">
-                            <img src="imagens/profile-logo-32.png" alt="">
-                        </div>
-                        <div class="menu-item-content-text">
+                <a href="#" class="menu-button">
+                    <div class="menu-button-content">
+                        <span class="menu-button-content-icon material-symbols-outlined">
+                            tag
+                        </span>
+                        <span class="menu-button-content-text">
+                            Explorar
+                        </span>
+                    </div>
+                </a>
+                <a href="#" class="menu-button">
+                    <div class="menu-button-content">
+                        <span class="menu-button-content-icon material-symbols-outlined">
+                            person
+                        </span>
+                        <span class="menu-button-content-text">
                             Perfil
-                        </div>
+                        </span>
                     </div>
                 </a>
-                <a href="#" class="menu-item">
-                    <div class="menu-item-content">
-                        <div class="menu-item-content-img">
-                            <img src="imagens/more-logo-32.png" alt="">
-                        </div>
-                        <div class="menu-item-content-text">
-                            O resto rs
-                        </div>
-                    </div>
-                </a>
-                <button type="button" class="postar-button">
-                    Publicar
-                </button>
-            </nav>
-            <button type="button" class="menu-item perfil-button">
-                <div class="perfil-user">
-                    <div class="area-img">
-                        <img src="imagens/profile.jpg" alt="" class="img">
-                    </div>
-                    <div class="perfil-area">
-                        <span class="perfil-nickname">Testador Beta haha</span>
-                        <span class="perfil-username">@testadorbeta123</span>
-                    </div>
+            </div>
+            <button class="menu-conta-button">
+                <img src="imgs/profile-image.jpg" class="profile-image">
+                <div class="profile-info">
+                    <span class="nickname">ML</span>
+                    <span class="username">@m4rcusml</span>
                 </div>
-                <div>
-                    <img src="imagens/more-logo-32.png" alt="">
-                </div>
+                <!-- Adicionar os ... -->
             </button>
-        </header>
-        <main class="principal-container">
-            <header class="topo-principal-container">
-                <div class="topo-titulo">
-                    <h2 class="topo-titulo-text">Página Inicial</h2>
-                </div>
-                <nav class="abas">
-                    <a href="#" class="opcao-abas">
-                        <div class="opcao-abas-text">Para você</div>
-                    </a>
-                    <a href="#" class="opcao-abas">
-                        <div class="opcao-abas-text">Seguindo</div>
-                    </a>
-                </nav>
-            </header>
-            <div class="criar-post">
-                <div class="post-text-area">
-                    <div class="area-img">
-                        <img src="imagens/profile.jpg" alt="" class="img">
-                    </div>
-                    <textarea name="post-text" id="post-text" cols="30" rows="1" placeholder="O que está acontecendo?" oninput="autoGrow(this)"></textarea>
-                </div>
-                <div class="postar-area">
-                    <div class="posting-tools">
+        </nav>
+    </header>
+    <main>
+        <div class="topo-main">
+            <h2 class="titulo-main">Página Inicial</h2>
+            <div class="qual-timeline">
+                <button id="para-voce">
+                    Para você
+                </button>
+                <button id="seguindo">
+                    Seguindo
+                </button>
+            </div>
+        </div>
+        <div class="post-container">
+            <img src="imgs/profile-image.jpg" class="profile-image">
+            <div class="post-area">
+                <div id="post-text" contenteditable="true"></div>
+                <div class="nav-post">
+                    <div>
                         
                     </div>
-                    <button type="button" class="postar-button" onclick="postar()">
-                        Publicar
-                    </button>
+                    <button>Postar</button>
                 </div>
             </div>
-            <section id="posts">
-                
-            </section>
-        </main>
-        <section class="right-container">
-            <h3>Skibiridop</h3>
-            <p>
-                Aqui nessa parte é pra ter a barra de pesquisa.
-            </p>
-            <h3>Texto genérico yes yes</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium cum exercitationem temporibus quas corrupti id quasi? Sint consequatur, unde sunt dolorem neque consectetur iste fugit. Laborum ad aspernatur reprehenderit quo.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolor beatae error delectus soluta facilis sunt rerum est cum unde, earum, officia animi. Quas vitae voluptate perferendis voluptatum quae atque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, est? Libero veniam at asperiores reiciendis expedita. Totam, quaerat accusamus nam in cumque laborum facilis aut id, temporibus at quis dolore!
-            </p>
-        </section>
-    </div>
+        </div>
+    </main>
+    <aside>
+        <p style="padding: 1em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum voluptate, 
+            pariatur molestias reprehenderit cum corporis asperiores! Itaque sint quis maiores? 
+            Maiores praesentium nesciunt ducimus est minima, dolorum totam velit cupiditate.</p>
+    </aside>
     <script src="scripts/index.js"></script>
 </body>
 </html>
