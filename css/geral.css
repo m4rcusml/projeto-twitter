@@ -3,6 +3,7 @@
 :root {
   --cor-borda: #2F3336;
   --cor-bg-hover: #181818;
+  --cor-botao-postar: #1d9bf0;
 }
 
 * {
@@ -170,11 +171,12 @@ main {
 }
 
 #post-text {
-  /* background-color: gray; */
   cursor: text;
   width: 100%;
   font-size: 1.2em;
   outline: none;
+  padding: 1em 0;
+  line-break: anywhere;
 }
 
 #post-text:empty::after {
@@ -189,6 +191,28 @@ main {
 .nav-post {
   display: flex;
   justify-content: space-between;
+}
+
+.button-post-action {
+  background-color: var(--cor-botao-postar);
+  color: white;
+  border: none;
+  border-radius: 1em;
+  padding: .5em 1.5em;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.button-post-action:hover {
+  opacity: .9;
+}
+
+.button-post-action:disabled {
+  cursor: default;
+  opacity: .5;
+  transition: none;
 }
 
 aside {
