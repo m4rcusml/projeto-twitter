@@ -4,6 +4,7 @@
   --cor-borda: #2F3336;
   --cor-bg-hover: #181818;
   --cor-botao-postar: #1d9bf0;
+  --cor-username: #71767B;
 }
 
 * {
@@ -114,7 +115,7 @@ header {
 
 .profile-info .username {
   font-size: 15px;
-  color: #71767B;
+  color: var(--cor-username);
 }
 
 main {
@@ -150,19 +151,23 @@ main {
   background-color: var(--cor-bg-hover);
 }
 
-.post-container {
+.post-container, .publicacao {
   border-bottom: 1px solid var(--cor-borda);
   padding: .5em 1em;
   display: flex;
   gap: 1em;
 }
 
-.post-container .profile-image {
+.publicacao {
+  gap: .8em;
+}
+
+.post-container .profile-image, .publicacao .profile-image {
   width: 50px;
   height: 50px;
 }
 
-.post-area {
+.post-area, .publi-conteudo {
   align-self: flex-end;
   flex-grow: 1;
   display: flex;
@@ -170,22 +175,55 @@ main {
   gap: 1em;
 }
 
+.publi-conteudo {
+  margin-top: .3em;
+  gap: .5em;
+}
+
+.publi-conteudo .publi-texto {
+  max-width: 100%;
+  line-break: anywhere;
+}
+
+.publi-conteudo .user-info {
+  display: flex;
+  gap: .5em;
+}
+
+.user-info .username {
+  color: var(--cor-username);
+}
+
+.user-info .nickname {
+  font-weight: bold;
+}
+
 #post-text {
   cursor: text;
   width: 100%;
   font-size: 1.2em;
   outline: none;
-  padding: 1em 0;
-  line-break: anywhere;
+  margin: 1em 0 0 0;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: sans-serif;
+  resize: none;
+  overflow: hidden;
 }
 
-#post-text:empty::after {
-  content: 'O que você está pensando?';
-  color: gray;
+main::-webkit-scrollbar {
+  width: 10px;
 }
 
-#post-text:not(#post-text:empty)::after {
-  content: '';
+main::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  border: 3px solid black;
 }
 
 .nav-post {
@@ -213,6 +251,15 @@ main {
   cursor: default;
   opacity: .5;
   transition: none;
+}
+
+#publicacoes {
+  display: flex;
+  flex-direction: column;
+}
+
+.publicacao {
+
 }
 
 aside {

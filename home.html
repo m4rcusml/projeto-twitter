@@ -69,9 +69,9 @@
             </div>
         </div>
         <div class="post-container">
-            <img src="imgs/profile-image.jpg" class="profile-image">
+                <img src="imgs/profile-image.jpg" class="profile-image">
             <div class="post-area">
-                <div id="post-text" contenteditable="true"></div>
+                <textarea type="text" id="post-text" maxlength="255" placeholder="O que está acontecendo?"></textarea>
                 <div class="nav-post">
                     <div class="nav-post-buttons">
 
@@ -80,6 +80,10 @@
                 </div>
             </div>
         </div>
+
+        <section id="publicacoes">
+            
+        </section>
     </main>
     <aside>
         <p style="padding: 1em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum voluptate,
@@ -87,163 +91,6 @@
             Maiores praesentium nesciunt ducimus est minima, dolorum totam velit cupiditate.</p>
     </aside>
     <script src="scripts/index.js"></script>
-
-    <script>
-
-        const textoParaPostar = document.querySelector('#post-text')
-        const botaoParaPostar = document.querySelector('.button-post-action')
-        const limiteCaracteres = 100;
-
-        textoParaPostar.addEventListener('input', digitando);
-        textoParaPostar.addEventListener('paste', colandoTexto);
-
-        function digitando() {
-            const savedSelection = saveSelection(textoParaPostar);
-
-            if (textoParaPostar.textContent.trim().length > 0 && /\w/.test(textoParaPostar.textContent)) {
-                botaoParaPostar.disabled = false;
-            } else {
-                botaoParaPostar.disabled = true;
-            }
-
-            verLimiteCaracteres();
-
-            restoreSelection(textoParaPostar, savedSelection);
-        }
-
-        function colandoTexto(e) {
-            e.preventDefault();
-            const text = e.clipboardData.getData('text/plain');
-            document.execCommand('insertText', false, text);
-            setTimeout(digitando, 0);
-        }
-
-        function saveSelection(containerEl) {
-            const range = window.getSelection().getRangeAt(0);
-            const preSelectionRange = range.cloneRange();
-            preSelectionRange.selectNodeContents(containerEl);
-            preSelectionRange.setEnd(range.startContainer, range.startOffset);
-            const start = preSelectionRange.toString().length;
-
-            return {
-                start: start
-            };
-        }
-
-        function restoreSelection(containerEl, savedSelection) {
-            let charIndex = 0;
-            const range = document.createRange();
-            const nodeStack = [containerEl];
-            let node, foundStart = false, stop = false;
-
-            range.setStart(containerEl, 0);
-            range.collapse(true);
-
-            while (!stop && (node = nodeStack.pop())) {
-                if (node.nodeType === Node.TEXT_NODE) {
-                    const nextCharIndex = charIndex + node.length;
-                    if (!foundStart && savedSelection.start >= charIndex && savedSelection.start <= nextCharIndex) {
-                        range.setStart(node, savedSelection.start - charIndex);
-                        foundStart = true;
-                    }
-                    if (foundStart && savedSelection.start + limiteCaracteres <= nextCharIndex) {
-                        range.setEnd(node, savedSelection.start + limiteCaracteres - charIndex);
-                        stop = true;
-                    }
-                    charIndex = nextCharIndex;
-                } else {
-                    let i = node.childNodes.length;
-                    while (i--) {
-                        nodeStack.push(node.childNodes[i]);
-                    }
-                }
-            }
-
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-        }
-
-
-        function verLimiteCaracteres() {
-            const texto = textoParaPostar.textContent;
-
-            if (texto.length > limiteCaracteres) {
-                const textoFormatado = texto.slice(0, limiteCaracteres);
-                const textoExcedente = texto.slice(limiteCaracteres);
-
-                const novoTexto = `<span style="background-color: red;">${textoExcedente}</span>`;
-
-                textoParaPostar.innerHTML = textoFormatado + novoTexto + '&zwnj;';
-            } else {
-                textoParaPostar.innerHTML = texto;
-            }
-        }
-
-
-        // textoParaPostar.addEventListener('input', digitando);
-        // textoParaPostar.addEventListener('paste', colandoTexto);
-
-        // function digitando() {
-        //     const savedSelection = saveSelection(textoParaPostar);
-
-        //     if (textoParaPostar.textContent.trim().length > 0 && /\w/.test(textoParaPostar.textContent)) {
-        //         botaoParaPostar.disabled = false;
-        //     } else {
-        //         botaoParaPostar.disabled = true;
-        //     }
-
-        //     verLimiteCaracteres();
-
-        //     restoreSelection(textoParaPostar, savedSelection);
-        // }
-
-        // function colandoTexto(e) {
-        //     e.preventDefault();
-        //     const text = e.clipboardData.getData('text/plain');
-        //     document.execCommand('insertText', false, text);
-        //     setTimeout(digitando, 0);
-        // }
-
-        // function saveSelection(containerEl) {
-        //     const range = window.getSelection().getRangeAt(0);
-        //     const preSelectionRange = range.cloneRange();
-        //     preSelectionRange.selectNodeContents(containerEl);
-        //     preSelectionRange.setEnd(range.startContainer, range.startOffset);
-        //     const start = preSelectionRange.toString().length;
-
-        //     return {
-        //         start: start
-        //     };
-        // }
-
-        // function restoreSelection(containerEl, savedSelection) {
-        //     const charIndex = 0;
-        //     const range = document.createRange();
-        //     range.setStart(containerEl.firstChild, savedSelection.start + charIndex);
-        //     range.collapse(true);
-        //     const selection = window.getSelection();
-        //     selection.removeAllRanges();
-        //     selection.addRange(range);
-        // }
-
-        // function verLimiteCaracteres() {
-        //     const texto = textoParaPostar.textContent;
-        //     const limiteCaracteres = 100;
-
-        //     if (texto.length > limiteCaracteres) {
-        //         const textoFormatado = texto.slice(0, limiteCaracteres);
-        //         const textoExcedente = texto.slice(limiteCaracteres);
-
-        //         const novoTexto = `<span style="background-color: red;">${textoExcedente}</span>`;
-
-        //         textoParaPostar.innerHTML = textoFormatado + novoTexto + '&zwnj;';
-        //     } else {
-        //         textoParaPostar.innerHTML = texto;
-        //     }
-        // }
-
-    </script>
 </body>
 
 </html>
